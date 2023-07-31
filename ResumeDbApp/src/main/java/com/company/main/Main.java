@@ -13,8 +13,8 @@ import java.util.List;
 
 
 public class Main { // java database connectivity = jdbc api specification - Connection, Statement, ResultSet
-    public static void main(String[] args) throws Exception {
-        UserDaoInter userDaoInter = new UserDaoImpl();
+    public static void main(String[] args) throws Exception {// Loosely coupling - iki obyektin bir birinden asli olmamasi durumudur.
+        UserDaoInter userDaoInter = Context.instanceUserDao();
         /*List<User> list = userDaoInter.getAllUser();
         System.out.println("list: "+ list); */
         User usr = userDaoInter.getById(1);
