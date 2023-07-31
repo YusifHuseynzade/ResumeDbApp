@@ -1,23 +1,20 @@
 package com.company.main;
 
 
+import com.company.dao.impl.UserDaoImpl;
+import com.company.dao.inter.UserDaoInter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
-public class Main {
-        public static void connect() throws Exception {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/Resume";
-            String username = "root";
-            String password = "yusif3200";
-            Connection c = DriverManager.getConnection(url, username, password);
-            System.out.println(c.getClass().getName());
-        }
 
+public class Main { // java database connectivity = jdbc api specification - Connection, Statement, ResultSet
     public static void main(String[] args) throws Exception {
-        connect();
+        UserDaoInter userDaoInter = new UserDaoImpl();
     }
 
     }
