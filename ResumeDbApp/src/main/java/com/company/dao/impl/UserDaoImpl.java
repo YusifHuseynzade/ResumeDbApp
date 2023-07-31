@@ -67,6 +67,17 @@ public class UserDaoImpl extends AbstractDAO implements UserDaoInter {
     }
 
     @Override
+    public boolean addUser(User u) throws Exception {
+        Connection con = connect();
+        PreparedStatement stmt = con.prepareStatement("insert into user(name, surname, phone, email) value(?,?,?,?)");
+        stmt.setString(1, u.getName());
+        stmt.setString(2, u.getSurname());
+        stmt.setString(3, u.getPhone());
+        stmt.setString(4, u.getEmail());
+        return stmt.execute();
+    }
+
+    @Override
     public boolean removeUser(int id) throws Exception {
         Connection con = connect();
         Statement stmt = con.createStatement();
