@@ -1,7 +1,7 @@
 package com.company.bean;
 
 public class UserSkill {
-    private int id;
+    private Integer id; // Integer classı olaraq yazdığımız zaman yerinə null göndərə bilirik.
     private User user;
     private Skill skill;
     private int power;
@@ -10,17 +10,17 @@ public class UserSkill {
 
     }
 
-    public UserSkill(int id, User user, Skill skill, int power){
+    public UserSkill(Integer id, User user, Skill skill, int power){
         this.id = id;
         this.user = user;
         this.skill = skill;
         this.power = power;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,5 +47,7 @@ public class UserSkill {
     public void setPower(int power) {
         this.power = power;
     }
-
+    public String toString() {
+        return  "UserSkill("  + "id= " + id + ", user= " + user + ", user= " + user + ", skill= " + skill + ", power= " + power + ")";
+    }
 }

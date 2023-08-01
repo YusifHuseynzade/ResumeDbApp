@@ -1,6 +1,7 @@
 package com.company.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private int id;
@@ -10,9 +11,13 @@ public class User {
     private String email;
     private Date birthDate;
     private Nationality nationality;
+    private List<UserSkill> userSkills;
 
     public User(){
 
+    }
+    public User(int id){
+        this.id = id;
     }
     public User(int id, String name, String surname, String phone, String email, Date birthDate, Nationality nationality){
         this.id = id;
@@ -72,6 +77,13 @@ public class User {
     }
     public Nationality getNationality() {return nationality;}
     public void setNationality(Nationality nationality) {this.nationality = nationality;}
+    public List<UserSkill> getUserSkills() {
+        return userSkills;
+    }
+
+    public void setUserSkills(List<UserSkill> userSkills) {
+        this.userSkills = userSkills;
+    }
     public String toString() {
         return  "User("  + "id= " + id + ", name= " + name + ", surname= " + surname + ", phone= " + phone + ", email= " + email + ", birthday= " + birthDate + ", nationality= " + nationality + ")";
     }
