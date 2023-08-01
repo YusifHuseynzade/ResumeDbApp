@@ -1,4 +1,4 @@
-package com.company.bean;
+package com.company.entity;
 
 import java.util.Date;
 import java.util.List;

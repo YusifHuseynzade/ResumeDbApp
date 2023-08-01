@@ -1,4 +1,4 @@
-package com.company.bean;
+package com.company.entity;
 
 public class Skill {
     private int id;

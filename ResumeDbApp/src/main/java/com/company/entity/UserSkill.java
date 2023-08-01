@@ -1,4 +1,4 @@
-package com.company.bean;
+package com.company.entity;
 
 public class UserSkill {
     private Integer id; // Integer classı olaraq yazdığımız zaman yerinə null göndərə bilirik.

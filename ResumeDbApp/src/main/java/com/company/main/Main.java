@@ -1,20 +1,14 @@
 package com.company.main;
 
 
-import com.company.bean.User;
-import com.company.dao.impl.UserDaoImpl;
 import com.company.dao.inter.UserDaoInter;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.List;
+import com.company.dao.inter.UserSkillDaoInter;
 
 
 public class Main { // java database connectivity = jdbc api specification - Connection, Statement, ResultSet
     public static void main(String[] args) throws Exception {// Loosely coupling - iki obyektin bir birinden asli olmamasi durumudur.
         UserDaoInter userDaoInter = Context.instanceUserDao();
+        UserSkillDaoInter userSkillDaoInter = Context.instanceUserSkillDao();
         /*List<User> list = userDaoInter.getAllUser();
         System.out.println("list: "+ list); */
 
@@ -26,7 +20,7 @@ public class Main { // java database connectivity = jdbc api specification - Con
         usr.setName("Kamal");
         userDaoInter.updateUser(usr); */
         // List<User> list = userDaoInter.getAllUser();
-        System.out.println(userDaoInter.getAllUserSkillById(4));
+        System.out.println(userSkillDaoInter.getAllUserSkillById(4));
     }
 
     }
