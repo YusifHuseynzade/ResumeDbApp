@@ -1,21 +1,27 @@
 package com.company.bean;
 
+import java.util.Date;
+
 public class User {
     private int id;
     private String name;
     private String surname;
     private String phone;
     private String email;
+    private Date birthDate;
+    private Nationality nationality;
 
     public User(){
 
     }
-    public User(int id, String name, String surname, String phone, String email){
+    public User(int id, String name, String surname, String phone, String email, Date birthDate, Nationality nationality){
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
+        this.birthDate = birthDate;
+        this.nationality = nationality;
     }
     public int getId() {
         return id;
@@ -56,7 +62,17 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+    public Nationality getNationality() {return nationality;}
+    public void setNationality(Nationality nationality) {this.nationality = nationality;}
     public String toString() {
-        return  "User("  + "id= " + id + ", name= " + name + ", surname= " + surname + ", phone= " + phone + ", email= " + email + ")";
+        return  "User("  + "id= " + id + ", name= " + name + ", surname= " + surname + ", phone= " + phone + ", email= " + email + ", birthday= " + birthDate + ", nationality= " + nationality + ")";
     }
 }
