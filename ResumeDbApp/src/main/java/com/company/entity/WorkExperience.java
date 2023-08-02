@@ -67,4 +67,8 @@ public class WorkExperience {
     public void setUser(User user) {
         this.user = user;
     }
+    @Override
+    public String toString() {
+        return "WorkExperience{" + "id=" + id + ", header=" + header + ", beginDate=" + beginDate + ", endDate=" + endDate + ", jobDescription=" + jobDescription + ", user=" + user + '}';
+    }
 }

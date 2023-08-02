@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkExperienceDaoImpl extends AbstractDAO implements WorkExperienceDaoInter {
-    private WorkExperience getEmploymentHistory(ResultSet rs) throws Exception {
+    private WorkExperience getWorkExperience(ResultSet rs) throws Exception {
         String header = rs.getString("header");
         String jobDescription = rs.getString("job_description");
         Date beginDate = rs.getDate("begin_date");
@@ -24,22 +24,20 @@ public class WorkExperienceDaoImpl extends AbstractDAO implements WorkExperience
     }
 
     @Override
-    public List<WorkExperience> getAllWorkExperienceByUserId(int userId) {
+    public List<WorkExperience> getAllWorkExperienceByUserId(int userId) throws Exception {
         List<WorkExperience> result = new ArrayList<>();
-        try (Connection c = connect()) {
+        Connection con = connect();
+        PreparedStatement stmt = con.prepareStatement("select * from work_experience where user_id = ?");
+        stmt.setInt(1, userId);
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
 
-            PreparedStatement stmt = c.prepareStatement("select * from employment_history where user_id = ?");
-            stmt.setInt(1, userId);
-            stmt.execute();
-            ResultSet rs = stmt.getResultSet();
-
-            while (rs.next()) {
-                WorkExperience emp = getEmploymentHistory(rs);
-                result.add(emp);
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        while (rs.next()) {
+            WorkExperience emp = getWorkExperience(rs);
+            result.add(emp);
         }
+
+
         return result;
     }
 }
